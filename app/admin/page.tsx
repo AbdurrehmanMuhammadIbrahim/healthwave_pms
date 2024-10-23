@@ -2,7 +2,7 @@ import StatCard from '@/components/StatCard'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import {columns, Payment} from "@/components/table/columns"
+import {columns,} from "@/components/table/columns"
 import {DataTable} from "../../components/table/DataTable"
 import {getRecentAppointmentList} from "@/lib/actions/appointment.actions"
  
