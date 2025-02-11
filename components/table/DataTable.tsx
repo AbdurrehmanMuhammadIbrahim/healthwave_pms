@@ -48,9 +48,9 @@ export function DataTable<TData, TValue>({
                     {header.isPlaceholder
                       ? null
                       : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
                   </TableHead>
                 )
               })}
@@ -61,7 +61,7 @@ export function DataTable<TData, TValue>({
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
-              className="shad-table-row"
+                className="shad-table-row"
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
               >
@@ -89,11 +89,11 @@ export function DataTable<TData, TValue>({
           disabled={!table.getCanPreviousPage()}
           className="shad-gray-btn cursor-pointer"
         >
-          <Image 
-          src="/assets/icons/arrow.svg"
-          width={24}
-          height={24}
-          alt="arrow"
+          <Image
+            src="/assets/icons/arrow.svg"
+            width={24}
+            height={24}
+            alt="arrow"
           />
         </Button>
         <Button
@@ -103,12 +103,12 @@ export function DataTable<TData, TValue>({
           disabled={!table.getCanNextPage()}
           className="shad-gray-btn cursor-pointer"
         >
-          <Image 
-          src="/assets/icons/arrow.svg"
-          width={24}
-          height={24}
-          alt="arrow"
-          className="rotate-180"
+          <Image
+            src="/assets/icons/arrow.svg"
+            width={24}
+            height={24}
+            alt="arrow"
+            className="rotate-180"
           />
         </Button>
       </div>

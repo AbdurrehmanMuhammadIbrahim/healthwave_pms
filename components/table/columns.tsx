@@ -2,7 +2,7 @@
 
 import { ColumnDef } from "@tanstack/react-table"
 import { MoreHorizontal } from "lucide-react"
- 
+
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -25,42 +25,42 @@ import { scheduler } from "timers/promises"
 export const columns: ColumnDef<Appointment>[] = [
   {
     header: "ID",
-    cell:({row}) => <p className="text-14-medium">{row.index + 1}</p>
+    cell: ({ row }) => <p className="text-14-medium">{row.index + 1}</p>
   },
   {
     accessorKey: "patient",
     header: "Patient",
-    cell:({row}) => <p className="text-14-medium">{row.original.patient.name}</p>
+    cell: ({ row }) => <p className="text-14-medium">{row.original.patient.name}</p>
   },
   {
     accessorKey: "status",
     header: "Status",
-    cell:({row}) =>
-    <div className="min-w-[115px]">
-       <StatusBadge status={row.original.status} />
-         </div>
-    
+    cell: ({ row }) =>
+      <div className="min-w-[115px]">
+        <StatusBadge status={row.original.status} />
+      </div>
+
   },
   {
     accessorKey: "schedule",
     header: "Schedule",
-    cell:({row}) =>(
+    cell: ({ row }) => (
       <p className="text-14-regular min-w-[100px]">
-      {formatDateTime(row.original.schedule).dateTime}
-       </p>
+        {formatDateTime(row.original.schedule).dateTime}
+      </p>
     )
   },
   {
     accessorKey: "email",
     header: "Email",
-    cell:({row}) => <p className="text-14-medium">{row.original.patient.email}</p>
+    cell: ({ row }) => <p className="text-14-medium">{row.original.patient.email}</p>
 
   },
   {
     accessorKey: "primaryPhysician",
     header: () => "Doctor",
     cell: ({ row }) => {
-      const doctor = Doctors.find( (doc) => doc.name === row.original.primaryPhysician)
+      const doctor = Doctors.find((doc) => doc.name === row.original.primaryPhysician)
 
       return (
         <div className="flex items-center gap-3">
@@ -74,35 +74,35 @@ export const columns: ColumnDef<Appointment>[] = [
           <p className="whitespace-nowrap">Dr. {doctor?.name}</p>
         </div>
       );
- 
+
     },
   },
   {
     id: "actions",
     header: () => <div className="pl-4">Actions</div>,
-    cell: ({ row:{original:data} }) => {
+    cell: ({ row: { original: data } }) => {
       // const payment = row.original
- 
+
       return (
         <div className="flex gap-1">
-          <AppointmentModal 
-          patientId = {data.patient.$id}
-          userId={data.userId}
-        //  title="Schedule Appointment"
-          appointment={data}
-          type="schedule"
+          <AppointmentModal
+            patientId={data.patient.$id}
+            userId={data.userId}
+            //  title="Schedule Appointment"
+            appointment={data}
+            type="schedule"
           // description="Please confirm the following details to schedule"
           />
-          <AppointmentModal 
-          patientId = {data.patient.$id}
-          userId={data.userId}
-        //  title="Cancel Appointment"
-          appointment={data}
-          // description="Are you share you want to cancel your appointment"
-         
-          type="cancel"/>
+          <AppointmentModal
+            patientId={data.patient.$id}
+            userId={data.userId}
+            //  title="Cancel Appointment"
+            appointment={data}
+            // description="Are you share you want to cancel your appointment"
 
-          </div>
+            type="cancel" />
+
+        </div>
         // <DropdownMenu>
         //   <DropdownMenuTrigger asChild>
         //     <Button variant="ghost" className="h-8 w-8 p-0">
